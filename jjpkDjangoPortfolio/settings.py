@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'jjpkDjangoPortfolioApp.apps.JjpkdjangoportfolioappConfig',
+    'newDjangoAppTest.apps.NewdjangoapptestConfig',
+    'boards.apps.BoardsConfig'
 ]
 
 MIDDLEWARE = [
