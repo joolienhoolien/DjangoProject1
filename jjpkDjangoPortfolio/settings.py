@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'jjpkDjangoPortfolioApp.apps.JjpkdjangoportfolioappConfig',
     'newDjangoAppTest.apps.NewdjangoapptestConfig',
-    'boards.apps.BoardsConfig'
+    'boards.apps.BoardsConfig',
+    'widget_tweaks'
 ]
 
 MIDDLEWARE = [
