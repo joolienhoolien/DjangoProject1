@@ -1,5 +1,6 @@
 from django.contrib.auth import login as auth_login
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate
+from django.contrib.auth import logout as auth_logout
 from django.shortcuts import render, redirect
 from .forms import SignUpForm
 
@@ -13,3 +14,7 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
+
+def logout(request):
+    auth_logout(request)
+    return redirect('home')
