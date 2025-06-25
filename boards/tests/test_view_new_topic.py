@@ -19,9 +19,12 @@ class LoginRequiredNewTopicTests(TestCase):
 
 class NewTopicTests(TestCase):
     def setUp(self):
-        Board.objects.create(name='Django', description="Django description")
-        user = User.objects.create_user(username='user', email='email@email.com', password='password')
-        self.client.force_login(user=user) #Check here if authentication or redirecting error occurs like 302
+        self.board = Board.objects.create(name='Django2', description='Django board.')
+        self.username = 'john'
+        self.password = '123'
+        self.email = 'john@doe.com'
+        self.user = User.objects.create_user(username=self.username, email=self.email, password=self.password)
+        self.client.force_login(user=self.user)
 
     def test_new_topic_view_success_status_code(self):
         url = reverse('new_topic', kwargs={'pk': 1})
