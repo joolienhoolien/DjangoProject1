@@ -7,6 +7,7 @@ from ..models import Board, Post, Topic
 from ..views import reply_topic
 
 
+
 class ReplyTopicTestCase(TestCase):
     '''
     Base test case to be used in all `reply_topic` view tests
@@ -19,7 +20,6 @@ class ReplyTopicTestCase(TestCase):
         self.topic = Topic.objects.create(subject='Hello, world', board=self.board, startedBy=user)
         Post.objects.create(message='Lorem ipsum dolor sit amet', topic=self.topic, created_by=user)
         self.url = reverse('reply_topic', kwargs={'pk': self.board.pk, 'topic_pk': self.topic.pk})
-
 
 class LoginRequiredReplyTopicTests(ReplyTopicTestCase):
     def test_redirection(self):
@@ -52,7 +52,7 @@ class ReplyTopicTests(ReplyTopicTestCase):
         '''
         The view must contain two inputs: csrf, message textarea
         '''
-        self.assertContains(self.response, '<input', 2)
+        self.assertContains(self.response, '<input', 1)
         self.assertContains(self.response, '<textarea', 1)
 
 

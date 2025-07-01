@@ -33,7 +33,7 @@ class PasswordChangeTests(TestCase):
         '''
         The view must contain four inputs: csrf, old_password, new_password1, new_password2
         '''
-        self.assertContains(self.response, '<input', 5)
+        self.assertContains(self.response, '<input', 4)
         self.assertContains(self.response, 'type="password"', 3)
 
 
@@ -82,7 +82,7 @@ class SuccessfulPasswordChangeTests(PasswordChangeTestCase):
     def test_user_authentication(self):
         '''
         Create a new request to an arbitrary page.
-        The resulting response should now have an `user` to its context, after a successful sign up.
+        The resulting response should now have an `user` to its context, after a successful sign-up.
         '''
         response = self.client.get(reverse('home'))
         user = response.context.get('user')

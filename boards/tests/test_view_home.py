@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.urls import reverse, resolve
 
 from ..models import Board
-from ..views import home, BoardListView
+from ..views import BoardListView
 
 
 class HomeTests(TestCase):
